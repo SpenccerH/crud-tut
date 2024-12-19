@@ -1,16 +1,10 @@
 export default function NavBar({ onOpen } : { onOpen: () => void }) {
     return (
         <>
-            <div className="navbar bg-base-100">
-                <div className="navbar-start">
-                    <a className="btn btn-ghost text-xl">CookKeeper</a>
-                </div>
-                <div className="navbar-center">
-                    <input type="text" placeholder="Search" className="input input-bordered w-48 md:w-auto" />
-                </div>
-                <div className="navbar-end">
-                    <a className="btn btn-primary" onClick={onOpen}>New Recipe</a>
-                </div>
+            <div className="flex px-4 py-2 border-b justify-between">
+                <a className="text-2xl font-bold">CookKeeper</a>
+                <input type="text" placeholder="Search" className="px-4 py-2 border rounded-sm w-96 focus:outline-none" />
+                <button className="bg-slate-200 hover:bg-slate-300 px-4 py-2" onClick={onOpen}>New Recipe</button>
             </div>
         </>
     )

@@ -15,22 +15,22 @@ export default function TableList({ handleOpen } : { handleOpen: (mode: 'add' | 
 
     return (
         <>
-            <div className="overflow-x-auto mt-10">
-                <table className="table">
-                    <thead>
+            <div className="px-4 py-2">
+                <table className="w-full">
+                    <thead className="border-b">
                         <tr>
                             {headers.map(header => (
-                                <th>{header.title}</th>
+                                <th className="text-left py-4">{header.title}</th>
                             ))}
                         </tr>
                     </thead>
-                    <tbody className="hover">
+                    <tbody>
                         {recipes.map(recipe => (
-                            <tr>
-                                <th>{recipe.id}</th>
-                                <th>{recipe.recipe}</th>
-                                <td>{recipe.meal}</td>
-                                <td>{recipe.time}</td>
+                            <tr className="border-b">
+                                <th className="py-2">{recipe.id}</th>
+                                <td className="py-2">{recipe.recipe}</td>
+                                <td className="py-2">{recipe.meal}</td>
+                                <td className="py-2">{recipe.time}</td>
                                 <td>
                                     <button onClick={() => handleOpen('edit')} className={`rounded-full bg-slate-200 hover:bg-slate-300 w-20`}>Edit</button>
                                 </td>
