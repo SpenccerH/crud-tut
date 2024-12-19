@@ -1,39 +1,44 @@
-export default function Tablelist() {
+export default function TableList({ handleOpen } : { handleOpen: (mode: 'add' | 'edit') => void }) {
+
+    const headers = [
+        { title: ""},
+        { title: "Recipe Name" },
+        { title: "Meal Type" },
+        { title: "Total Time" },
+    ]
+
+    const recipes = [
+        { id: 1, recipe: "Burger", meal: "Lunch", time: "10 minutes"  },
+        { id: 2, recipe: "Sandwich", meal: "Lunch", time: "10 minutes"  },
+        { id: 3, recipe: "Cereal", meal: "Breakfast", time: "2 minutes"  },
+    ]
+
     return (
         <>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto mt-10">
                 <table className="table">
-                    {/* head */}
                     <thead>
-                    <tr>
-                        <th></th>
-                        <th>Name</th>
-                        <th>Job</th>
-                        <th>Favorite Color</th>
-                    </tr>
+                        <tr>
+                            {headers.map(header => (
+                                <th>{header.title}</th>
+                            ))}
+                        </tr>
                     </thead>
                     <tbody className="hover">
-                    {/* row 1 */}
-                    <tr>
-                        <th>1</th>
-                        <td>Cy Ganderton</td>
-                        <td>Quality Control Specialist</td>
-                        <td>Blue</td>
-                    </tr>
-                    {/* row 2 */}
-                    <tr>
-                        <th>2</th>
-                        <td>Hart Hagerty</td>
-                        <td>Desktop Support Technician</td>
-                        <td>Purple</td>
-                    </tr>
-                    {/* row 3 */}
-                    <tr>
-                        <th>3</th>
-                        <td>Brice Swyre</td>
-                        <td>Tax Accountant</td>
-                        <td>Red</td>
-                    </tr>
+                        {recipes.map(recipe => (
+                            <tr>
+                                <th>{recipe.id}</th>
+                                <th>{recipe.recipe}</th>
+                                <td>{recipe.meal}</td>
+                                <td>{recipe.time}</td>
+                                <td>
+                                    <button onClick={() => handleOpen('edit')} className={`rounded-full bg-slate-200 hover:bg-slate-300 w-20`}>Edit</button>
+                                </td>
+                                <td>
+                                    <button className={`rounded-full bg-slate-200 hover:bg-slate-300 w-20`}>Delete</button>
+                                </td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>
