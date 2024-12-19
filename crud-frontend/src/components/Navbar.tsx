@@ -1,4 +1,4 @@
-export default function Navbar() {
+export default function NavBar({ onOpen } : { onOpen: () => void }) {
     return (
         <>
             <div className="navbar bg-base-100">
@@ -9,7 +9,7 @@ export default function Navbar() {
                     <input type="text" placeholder="Search" className="input input-bordered w-48 md:w-auto" />
                 </div>
                 <div className="navbar-end">
-                    <a className="btn btn-primary">Add New</a>
+                    <a className="btn btn-primary" onClick={onOpen}>New Recipe</a>
                 </div>
             </div>
         </>
